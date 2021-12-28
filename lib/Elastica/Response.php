@@ -85,6 +85,11 @@ class Response
             $message = $response['error'];
         }
 
+        // Encoding needed as much more information inside now
+        if (!is_string($message)) {
+            $message = json_encode($message);
+        }
+
         return $message;
     }
 
